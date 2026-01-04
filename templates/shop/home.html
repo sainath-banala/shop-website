@@ -1,0 +1,47 @@
+{% extends 'shop/base.html' %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4">Welcome to Venkata Sai Textiles</h1>
+        <p class="lead">Quality Sarees and Nightwear</p>
+        <a href="{% url 'shop:product_list' %}" class="btn btn-primary btn-lg">Shop Now</a>
+    </div>
+
+    <!-- Categories Section -->
+    <div class="container py-4">
+        <h2 class="text-center mb-4">Shop by Category</h2>
+        <div class="row g-3">
+            {% for category in categories %}
+            <div class="col-md-6">
+                <div class="card text-center p-4">
+                    <h4>{{ category.name }}</h4>
+                    <p class="text-muted">{{ category.description }}</p>
+                    <a href="{% url 'shop:products_by_category' category.id %}" class="btn btn-primary">
+                        Browse {{ category.name }}
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Featured Products -->
+    <h2 class="text-center mb-4">Featured Products</h2>
+    <div class="row g-4">
+        {% for product in featured_products %}
+        <div class="col-md-4">
+            <div class="card">
+                <img src="{{ product.image_url }}" class="card-img-top" alt="{{ product.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <p class="card-text">₹{{ product.price }}</p>
+                    <a href="{% url 'shop:product_detail' product.pk %}" class="btn btn-primary">View</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

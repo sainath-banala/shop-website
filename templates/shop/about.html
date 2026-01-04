@@ -1,0 +1,18 @@
+{% extends 'shop/base.html' %}
+
+{% block content %}
+<div class="container py-5">
+    <h1>About Venkata Sai Textiles</h1>
+    <p class="lead">Welcome to Venkata Sai Textiles, your trusted destination for quality sarees and nightwear in Guntur.</p>
+    
+    <h3 class="mt-4">What We Offer</h3>
+    <ul>
+        <li>Premium Sarees - Banarasi, Kanjivaram, Designer</li>
+        <li>Comfortable Nightwear - Cotton and Silk</li>
+        <li>Quality Products at Affordable Prices</li>
+        <li>Family-owned Business with Years of Experience</li>
+    </ul>
+    
+    <a href="{% url 'shop:contact' %}" class="btn btn-primary mt-3">Contact Us</a>
+</div>
+{% endblock %}
